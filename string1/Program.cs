@@ -116,9 +116,11 @@ while (true)
             Console.WriteLine(numberToWord);
             break;
         case "4":
+            //var sentences = text.Split(new[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries).Select(sentence => sentence.Trim());
             var sentences = Regex.Split(text, @"(?<!\w\.\w)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s");
             var questionSentences = sentences.Where(sentence => sentence.EndsWith("?")).ToList();
             var exclamationSentences = sentences.Where(sentence => sentence.EndsWith("!")).ToList();
+
 
             Console.WriteLine("Восклицательные предложения:");
             foreach (var sentence in exclamationSentences)
